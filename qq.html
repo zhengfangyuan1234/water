@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<input type="text" id="fang"/>
+	<input type="button" value="提交" id='der'/>
+  <div id="div" ></div>
+</body>
+<script type="text/javascript">
+	var der=document.getElementById("der");
+  var fang=document.getElementById("fang");
+  var div=document.getElementById("div");
+  fang.onclick=function(){
+    div.innerHTML="<img src='index.php?s="+der+"'>";
+  }
+  
+</script>
+</html>
