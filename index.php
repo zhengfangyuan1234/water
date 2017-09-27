@@ -1,3 +1,3 @@
 <?php
 
-echo "alert(2)";
+echo "alert(3)";
