@@ -1,2 +1,5 @@
 <?php
-echo "哈哈";
+header('Content-type: text/javascript');
+
+
+echo "alert(1)";
