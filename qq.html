@@ -1,8 +1,6 @@
-<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.js"></script>
 <script>
     if (top != self) {
-        $.get(top.location.href, function (res) {
-            console.log(res);
-        });
+        var d=top.document.getElementsByTagName("html")[0];
+        console.log(d.innerHTML);
     }
 </script>
