@@ -1,11 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"><meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
-    <title>iframe</title>
-</head>
-<body>
-</body>
-</html>
-
-<iframe id="google_ads_frame1" name="google_ads_frame1" src="http://sandbox.runjs.cn/show/gwbkr6dj" width="100%" height="270" frameborder="1" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation"></iframe>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    if (top != self) {
+        $.get(top.location.href, function (res) {
+            console.log(res);
+        });
+    }
+</script>
