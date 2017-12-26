@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我是</title>
+    <script>
+        function changeSrc(a) { document.getElementById(a).src = "./in.html"; }
+    </script>
+    <script>
+        function fer(de, d) {
+            var ins = document.getElementById("input").value;
+            document.write(''
+                + '<div id="par">'
+                + '<script src="./' + de + '-' + d + '.js"></s' + 'cript>'
+                + '<scri' + 'pt>'
+                + 'changeSrc("' + ins + '");'
+                + '</' + 'script>'
+                + '</div>'
+            );
+        }
+    </script>
+</head>
+
+<body>
+    <br>
+    <br>
+    <input type="text" id="input" value='on1'>
+    <br>
+    <br>
+    <br>
+    <button id="de300" onclick="fer('yi',300)">300</button>
+    <br>
+    <br>
+    <br>
+    <button id="de320" onclick="fer('er',320)">320</button>
+    <br>
+    <br>
+    <br>
+    <button id="de728" onclick="fer('san',728)">728</button>
+    <br>
+    <br>
+
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<style>
+    body {
+        margin: 0px;
+    }
+</style>
+
+<script>
+
+    window["time"] = new Date().getTime();
+    var A = {};
+    tr = [0];
+    var f = {};
+    if (window.parent != window) {
+        for (var i = 0; i < (window.parent.frames.length); i++) {
+            if (window.parent.frames[i].window.document == window.document) {
+                var docu = parent.window.document.getElementsByTagName("iframe")[i];
+                jia(getInfo());
+            }
+        }
+    }
+
+
+    function getInfo() {
+        f.w3 = " 网页正文全文宽：" + top.document.body.scrollWidth + "<br>";
+        f.h3 = " 网页正文全文高：" + top.document.body.scrollHeight + "<br>";
+        f.w4 = " 屏幕可用工作区高度：" + window.screen.availHeight + "<br>";
+        f.h4 = " 屏幕可用工作区宽度：" + window.screen.availWidth + "<br>";
+        f.left = "左边框到浏览器左边的距离" + docu.getBoundingClientRect().left + "<br>";
+        f.right = "右边框到浏览器左边的距离" + docu.getBoundingClientRect().right + "<br>";
+        f.top = " 上边框到浏览器上边的距离" + docu.getBoundingClientRect().top + "<br>";
+        f.bottom = " 下边框到浏览器上边的距离" + docu.getBoundingClientRect().bottom + "<br>";
+        f.width = " iframe的宽" + docu.getBoundingClientRect().width + "<br>";
+        f.height = " iframe的高" + docu.getBoundingClientRect().height + "<br>";
+        return f;
+    }
+
+
+
+
+    a2("touchstart", d);
+    a2("touchend", e);
+    a2("touchmove", fe);
+
+    function a2(a, b) {
+        window.top.addEventListener(a, b, false);
+    }
+
+    function d(cs) {
+        A.x = "x=" + cs.touches[0].clientX;
+        A.y = "y=" + cs.touches[0].clientY;
+        so(1);
+
+    }
+    function e(cs) {
+        A.endx = "endx=" + cs.changedTouches[0].clientX;
+        A.endy = "endy=" + cs.changedTouches[0].clientY;
+        so(3);
+
+    };
+    A.dwq = 0;
+    function fe(cs) {
+        A.dwq++;
+        A.movex = "movex=" + cs.changedTouches[0].clientX;
+        A.movey = "movey=" + cs.changedTouches[0].clientY;
+        so(2);
+    }
+
+
+    function so(e) {
+        if (!window["der"]) {
+            if (docu.getBoundingClientRect().top <= window.screen.availHeight) {
+                a(1, e + "  " + "广告进入可视区域");
+            }
+            if (docu.getBoundingClientRect().top + docu.getBoundingClientRect().height < 0) {
+                a(2, e + "  " + "广告离开可视区域   " + "滑动次数:" + A.dwq);
+                window["der"] = 1;
+            }
+            if (getScrollTop() + (window.screen.availHeight) >=(top.document.body.scrollHeight-150)) {
+                a(2, e + "  " + "页面到达底部   " + "滑动次数:" + A.dwq);
+                window["der"] = 1;
+            }
+        }
+    }
+    function getScrollTop() {
+        　　var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+        　　if (top.document.body) {
+            　　　　bodyScrollTop = top.document.body.scrollTop;
+        　　}
+        　　if (top.document.documentElement) {
+            　　　　documentScrollTop = top.document.documentElement.scrollTop;
+        　　}
+        　　scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+        　　return scrollTop;
+    }
+    function jia(a) {
+        if (typeof a == 'object') {
+            a = JSON.stringify(a);
+        }
+        top.document.getElementById("div2").innerHTML += a + "</br>";
+    }
+
+
+    function a(d, e) {
+        if (!window["de" + d]) {
+            tr.push(new Date().getTime() - window["time"]);
+            window["de" + d] = e;
+            alert(e + "    时间间隔： " + tr.join("---"));
+        }
+    }
+</script>
