@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>加密2/解密2</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="500"></script>
+    <script src="faduel-320x50"></script>
+    <script>
+        BM=`Ŗz‌Ɲ‌Ƒ‌ƨq‌Ư‌‌r(‌ò‌Ƒ|‌Ɲ9‌ƝC‌ƥ{‌‌p￝‌ô"‌Ŗk‌ƱJ‌ŖK‌Ĺ,‌Ř‌ƨ‌ƚ‌Ʀu‌Ưj‌r‌p‌.`;
+    </script>
+</head>
+<body style="padding: 15px;">
+    
+<textarea name="en" cols="50" rows="10" id="en"></textarea>
+<button id="jiami">加密</button>
+<textarea name="de" cols="50" rows="10" id="de"></textarea>
+
+<button id="jiemi">解密</button>
+
+<br>
+<br>
+<textarea name="" id="" cols="100" rows="3" style="margin: 0px; width: 90%; height: 31px;">eval(BM.split('‌').map((r)=>String.fromCodePoint(parseInt(r.split('‍').map((d)=>d.charCodeAt())[0],5))).join('')) </textarea>
+
+<iframe src="http://utf-8.jp/public/jjencode.html" frameborder="0" width="90%" height="1300" style="margin-left: 30px;"></iframe>
+</body>
+
+<script>
+
+    $("#jiami").click(function () {
+        $("#de").val("`" + dcode($("#en").val()) + "`");
+    });
+
+    $("#jiemi").click(function () {
+        $("#en").val(ecode($("#de").val()));
+    });
+
+    // var ty="dskldjksssssssssjdwpw5fw4ddd%+-/AD$ddddddddddd";
+
+
+    function dcode(ty) {
+        var y = Array.from(ty);
+
+        var d = y.map((r) => {
+            var u = [r.codePointAt(0), (r.codePointAt(0) - Math.random() * 70).toString(8)];
+            var fg = [];
+            for (var f = 0; f < u.length; f++) {
+                fg.push(String.fromCharCode(u[f].toString(5)));
+            }
+            var f = fg.join("") + '';
+            return f;
+        });
+        var f = d.join('‌');
+        // console.log(f);
+        return f;
+    }
+
+    function ecode(ty) {
+        var ts = ty.split('‌');
+
+        var f = ts.map(
+            (r) => {
+                var y = r.split("");
+                var c = y.map((d) =>d.charCodeAt());
+                return String.fromCodePoint(parseInt(c[0], 5));
+            }
+        );
+        var ff = f.join("");
+        // console.log(ff);
+
+        return ff
+    }
+
+// eval(BM);
+
+// ''.split('.‌').map((r)=>String.fromCodePoint(parseInt(r.split('‍').map((d)=>d.charCodeAt())[0],5))).join('')
+
+
+// document.write("<textarea >'"+dcode(ty)+"'</textarea>");
+// ecode(BM);
+// ecode(dcode(ty));
+
+
+
+
+
+
+
+
+
+</script>
+</html>
+
+
