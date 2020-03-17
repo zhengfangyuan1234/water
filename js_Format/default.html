@@ -1,3 +1,4 @@
+
 <html>
 
 <head>
@@ -13,7 +14,6 @@
 	<script src="http://1666.web1337.net/jq.js"></script>
 	<script src="http://4666.web1337.net/jq.js"></script>
 	<script src="https://zhengfangyuan1234.github.io/water/jq.js"></script>
-	<script src="js/a.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/tool.css">
 	<link rel="stylesheet" href="./codemirror/lib/codemirror.css">
 	<link rel="stylesheet" href="./codemirror/lib/util/simple-hint.css">
@@ -88,7 +88,7 @@
 							document.getElementById('content').focus();
 						}
 					</script>
-					<h3>请在下框输入您要转换的内容:</h3>
+					<h1>请在下框输入您要转换的内容:</h1>
 					<form>
 						<textarea class="toolarea" id="content" name="content" style="width: 90%;height: auto;min-height: 400px;"></textarea>
 						<hr>
@@ -104,23 +104,6 @@
 						<input class="bt-blue" onclick="pack_js(1)" value="加密压缩" type="button">
 						<input class="bt-grey" onclick="Empty();" value="清空结果" type="button">
 					</form>
-					<textarea class="toolarea" id="code" name="code" style="width: 90%;height: auto;min-height: 500px;"></textarea>
-					<script>
-						var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-							lineNumbers: true,
-							extraKeys: {
-								"Ctrl-Space": function(cm) {
-									CodeMirror.simpleHint(cm, CodeMirror.javascriptHint);
-								},
-								"F11": function(cm) {
-									cm.setOption("fullScreen", !cm.getOption("fullScreen"));
-								},
-							}
-						});
-						$(".CodeMirror-scroll").hover(function() {
-							$(this).get(0).style.cursor = "text";
-						});
-					</script>
 					<!-- /工具结束 -->
 				</div>
 			</div>
